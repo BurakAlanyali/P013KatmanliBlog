@@ -17,7 +17,7 @@ namespace P013KatmanliBlog.Data.Configurations
             builder.Property(x=>x.Surname).HasMaxLength(40);
             builder.Property(x=>x.Email).IsRequired().HasMaxLength(50);
             builder.Property(x=>x.Phone).HasMaxLength(20);
-            builder.Property(x=>x.Password).HasMaxLength(50);
+            builder.Property(x=>x.Password).IsRequired().HasMaxLength(50);
 
         }
     }

@@ -12,11 +12,11 @@ namespace P013KatmanliBlog.Core.Entities
         [Display(Name = "Oluşturulma Tarihi"), ScaffoldColumn(false)]
         public DateTime? CreateDate { get; set; } = DateTime.Now;
         [Display(Name = "Kategori")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         [Display(Name = "Kategori")]
         public Category? Category { get; set; }
         [Display(Name = "Yazar")]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         [Display(Name = "Yazar")]
         public User? User { get; set; }
     }

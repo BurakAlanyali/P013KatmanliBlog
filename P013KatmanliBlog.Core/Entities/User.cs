@@ -12,7 +12,7 @@ namespace P013KatmanliBlog.Core.Entities
         [EmailAddress]
         public string Email { get; set; }
         [Display(Name = "Şifre")]
-        public string? Password { get; set; }
+        public string Password { get; set; }
         [Display(Name = "Telefon"), Phone]
         public string? Phone { get; set; }
         [Display(Name = "Oluşturulma Tarihi"), ScaffoldColumn(false)]

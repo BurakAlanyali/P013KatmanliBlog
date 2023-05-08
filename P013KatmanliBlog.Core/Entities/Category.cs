@@ -4,6 +4,7 @@ namespace P013KatmanliBlog.Core.Entities
 {
     public class Category : IEntity
     {
+        [Key]
         public int Id { get; set; }
         [Display(Name = "Ad")]
         public string Name { get; set; }

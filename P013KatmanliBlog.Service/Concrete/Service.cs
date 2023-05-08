@@ -10,5 +10,7 @@ namespace P013KatmanliBlog.Service.Concrete
         public Service(DatabaseContext context) : base(context)
         {
         }
+
+
     }
 }
