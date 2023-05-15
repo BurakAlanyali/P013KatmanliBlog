@@ -10,7 +10,7 @@ namespace P013KatmanliBlog.Core.Entities
         [Display(Name = "İçerik"), DataType(DataType.MultilineText)]
         public string Body { get; set; }
         [Display(Name = "Oluşturulma Tarihi"), ScaffoldColumn(false)]
-        public DateTime? CreateDate { get; set; } = DateTime.Now;
+        public DateTime CreateDate { get; set; } = DateTime.Now;
         [Display(Name = "Kategori")]
         public int? CategoryId { get; set; }
         [Display(Name = "Kategori")]

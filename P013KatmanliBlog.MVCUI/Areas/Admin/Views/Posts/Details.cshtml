@@ -1,0 +1,21 @@
+﻿@model Post
+
+@{
+    ViewData["Title"] = "BlogDetay";
+}
+
+
+<div style="color:darkblue; background-color:lightgoldenrodyellow; height:220px; border:thick black" class="d-flex">
+	<h1 class="display-1" style="margin:auto">@Model.Title</h1>
+    <span>@Model.CreateDate.ToString("dd MMMM yyyy")</span>
+</div>
+<div style="color:black; margin-left: 30px;" class="text-cente d-flex mt-5">
+	<p class="lead">
+        @Model.Body
+    </p>
+</div>
+
+<div style="margin-top:200px">
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Düzenle</a> |
+    <a asp-action="Index">Listeye Dön</a>
+</div>
