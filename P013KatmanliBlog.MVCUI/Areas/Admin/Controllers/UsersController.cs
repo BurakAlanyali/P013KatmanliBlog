@@ -9,10 +9,12 @@ namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
     public class UsersController : Controller
     {
         private readonly IService<User> _service;
+        private readonly IPostService _servicePost;
 
-        public UsersController(IService<User> service)
+        public UsersController(IService<User> service, IPostService servicePost)
         {
             _service = service;
+            _servicePost = servicePost;
         }
 
         // GET: UsersController
@@ -22,10 +24,20 @@ namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
         }
 
         // GET: UsersController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int? id)
         {
-            return View();
-        }
+			if (id == null)
+			{
+				return BadRequest();
+			}
+			var model = await _servicePost.GetSomeByIncludeCategoryAndUserAsync(x => x.UserId == id);
+			ViewBag.Yazar = _service.Find(id.Value).Name;
+			if (model == null)
+			{
+				return NotFound();
+			}
+			return View(model);
+		}
 
         // GET: UsersController/Create
         public ActionResult Create()
