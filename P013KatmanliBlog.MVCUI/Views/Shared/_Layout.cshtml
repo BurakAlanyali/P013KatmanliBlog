@@ -1,49 +1,73 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - P013KatmanliBlog.MVCUI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/P013KatmanliBlog.MVCUI.styles.css" asp-append-version="true" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>@ViewData["Title"] - Burak Alanyalı Blog</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/P013KatmanliBlog.MVCUI.styles.css" asp-append-version="true" />
+	<link rel="icon" type="image/x-icon" href="/Blog-anasayfa/assets/favicon.ico" />
+	<link href="~/blog-anasayfa/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">P013KatmanliBlog.MVCUI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="/Home/Index">Burak Alanyalı Blog</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active" href="/Home/Index">Blog Anasayfa</a></li>
+					<li class="nav-item"><a class="nav-link" href="#!">İletişim</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header class="py-5 bg-light border-bottom mb-4">
+		<div class="container">
+			<div class="text-center my-5">
+				<h1 class="fw-bolder">Burak Alanyalı Blog Anasayfasına Hoşgeldiniz!</h1>
+				<p class="lead mb-0">Çeşitli konularda yazılan yazılar mevcuttur.</p>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<main role="main" class="pb-3">
+					@RenderBody()
+				</main>
+			</div>
+			<div class="col-lg-4">
+				<!-- Search widget-->
+				<div class="card mb-4">
+					<div class="card-header">Search</div>
+					<div class="card-body">
+						<div class="input-group">
+							<form method="get" asp-controller="Posts" asp-action="Search" role="search">
+								<input name="q" type="search" class="form-control" placeholder="Aramak istediğinizi yazın..." aria-label="Enter search term..." aria-describedby="button-search" />
+								<button class="btn btn-primary" id="button-search" type="submit">Ara!</button>
+							</form>
+							
+						</div>
+					</div>
+				</div>
+				<!-- Categories widget-->
+				@await Component.InvokeAsync("Categories")
+				@await Component.InvokeAsync("Users")
+			</div>
+		</div>
+	</div>
+	<footer class="py-5 bg-dark">
+		<div class="container"><p class="m-0 text-center text-white">Copyright &copy; Burak Alanyalı Blog 2023</p></div>
+	</footer>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - P013KatmanliBlog.MVCUI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/blog-anasayfa/js/scripts.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

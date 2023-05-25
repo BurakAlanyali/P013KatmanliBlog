@@ -1,21 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using P013KatmanliBlog.Core.Entities;
+using P013KatmanliBlog.MVCUI.Areas.Admin.Controllers;
 using P013KatmanliBlog.MVCUI.Models;
+using P013KatmanliBlog.Service.Abstract;
 using System.Diagnostics;
 
 namespace P013KatmanliBlog.MVCUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IPostService _servicePost;
+        private readonly IService<Category> _serviceCategory;
+        private readonly IService<User> _serviceUser;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+		public HomeController(IPostService servicePost, IService<Category> serviceCategory, IService<User> serviceUser)
+		{
+			_servicePost = servicePost;
+			_serviceCategory = serviceCategory;
+			_serviceUser = serviceUser;
+		}
 
-        public IActionResult Index()
+		public async Task<IActionResult> Index()
         {
-            return View();
+            Post deneme = await _servicePost.GetNewest();
+            var model = new HomePageViewModel()
+            {
+                FeaturedPost = deneme,
+                Posts = await _servicePost.GetSomeByIncludeCategoryAndUserAsync(x=>x.Id !=deneme.Id)
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()

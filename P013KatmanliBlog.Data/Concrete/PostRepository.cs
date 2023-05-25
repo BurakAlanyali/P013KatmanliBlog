@@ -26,7 +26,22 @@ namespace P013KatmanliBlog.Data.Concrete
             return await _context.Posts.Include(x => x.Category).Include(x => x.User).FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<List<Post>> GetSomeByIncludeCategoryAndUserAsync(Expression<Func<Post, bool>> predicate)
+        public async Task<Post> GetNewest()
+        {
+            return await _context.Posts.Include(x => x.Category).Include(x => x.User).OrderByDescending(x => x.CreateDate).FirstOrDefaultAsync();
+        }
+
+		public async Task<Post> GetNewestByCategory(int id)
+		{
+			return await _context.Posts.Include(x => x.Category).Include(x => x.User).OrderByDescending(x => x.CreateDate).Where(x=>x.CategoryId==id).FirstOrDefaultAsync();
+		}
+
+		public async Task<Post> GetNewestByUser(int id)
+		{
+			return await _context.Posts.Include(x => x.Category).Include(x => x.User).OrderByDescending(x => x.CreateDate).Where(x => x.UserId == id).FirstOrDefaultAsync();
+		}
+
+		public async Task<List<Post>> GetSomeByIncludeCategoryAndUserAsync(Expression<Func<Post, bool>> predicate)
         {
             return await _context.Posts.Where(predicate).Include(x => x.Category).Include(x => x.User).ToListAsync();
         }

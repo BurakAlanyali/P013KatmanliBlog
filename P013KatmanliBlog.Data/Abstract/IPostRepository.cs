@@ -13,5 +13,8 @@ namespace P013KatmanliBlog.Data.Abstract
         Task<List<Post>> GetAllByIncludeCategoryAndUserAsync();
         Task<List<Post>> GetSomeByIncludeCategoryAndUserAsync(Expression<Func<Post, bool>> predicate);
         Task<Post> GetByIdByIncludeCategoryAndUserAsync(int id);
+        Task<Post> GetNewest();
+        Task<Post> GetNewestByCategory(int id);
+        Task<Post> GetNewestByUser(int id);
     }
 }
