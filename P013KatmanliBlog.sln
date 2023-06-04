@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.MVCUI", "P013KatmanliBlog.MVCUI\P013KatmanliBlog.MVCUI.csproj", "{111DD641-655A-404E-9199-141B7A953563}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.MVCUI", "P013KatmanliBlog.MVCUI\P013KatmanliBlog.MVCUI.csproj", "{111DD641-655A-404E-9199-141B7A953563}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.Core", "P013KatmanliBlog.Core\P013KatmanliBlog.Core.csproj", "{E3A87220-4EC9-4D86-B704-5DD1D8CFEED2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Core", "P013KatmanliBlog.Core\P013KatmanliBlog.Core.csproj", "{E3A87220-4EC9-4D86-B704-5DD1D8CFEED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.Data", "P013KatmanliBlog.Data\P013KatmanliBlog.Data.csproj", "{74D3B4EF-F948-4EB3-B690-B7B06860FD0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Data", "P013KatmanliBlog.Data\P013KatmanliBlog.Data.csproj", "{74D3B4EF-F948-4EB3-B690-B7B06860FD0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.Service", "P013KatmanliBlog.Service\P013KatmanliBlog.Service.csproj", "{850230C6-4E18-4289-9A10-6B872CD3EFD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Service", "P013KatmanliBlog.Service\P013KatmanliBlog.Service.csproj", "{850230C6-4E18-4289-9A10-6B872CD3EFD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.WebAPI", "P013KatmanliBlog.WebAPI\P013KatmanliBlog.WebAPI.csproj", "{DAC4B167-2169-42E3-8491-9000F9BE6B7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{850230C6-4E18-4289-9A10-6B872CD3EFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{850230C6-4E18-4289-9A10-6B872CD3EFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{850230C6-4E18-4289-9A10-6B872CD3EFD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC4B167-2169-42E3-8491-9000F9BE6B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC4B167-2169-42E3-8491-9000F9BE6B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC4B167-2169-42E3-8491-9000F9BE6B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC4B167-2169-42E3-8491-9000F9BE6B7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

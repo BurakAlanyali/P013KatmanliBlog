@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using P013KatmanliBlog.Core.Entities;
 using P013KatmanliBlog.Service.Abstract;
 
 namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize(Policy = "AdminPolicy")]
     public class UsersController : Controller
     {
         private readonly IService<User> _service;
@@ -52,6 +53,7 @@ namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
         {
             try
             {
+                collection.IsAdmin = true;
                 await _service.AddAsync(collection);
                 await _service.SaveAsync();
                 return RedirectToAction(nameof(Index));

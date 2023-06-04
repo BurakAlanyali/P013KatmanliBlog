@@ -23,6 +23,18 @@
 					<li class="nav-item"><a class="nav-link" href="#!">İletişim</a></li>
 				</ul>
 			</div>
+			<div class="text-end">
+				@if (Context.Session.GetInt32("userId") == null)
+				{
+					<a asp-controller="Account" asp-action="Login" class="btn btn-primary">Giriş</a>
+					<a asp-controller="Account" asp-action="SignIn" class="btn btn-warning">Kayıt Ol</a>
+				}
+				else
+				{
+					<a asp-controller="Account" asp-action="Index" class="btn btn-primary">Hesabım</a>
+					<a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Oturumu Kapat</a>
+				}
+			</div>
 		</div>
 	</nav>
 	<header class="py-5 bg-light border-bottom mb-4">
@@ -36,6 +48,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8">
+				@Html.Raw(TempData["Message"])
 				<main role="main" class="pb-3">
 					@RenderBody()
 				</main>

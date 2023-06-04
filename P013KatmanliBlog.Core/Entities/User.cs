@@ -17,6 +17,8 @@ namespace P013KatmanliBlog.Core.Entities
         public string? Phone { get; set; }
         [Display(Name = "Oluşturulma Tarihi"), ScaffoldColumn(false)]
         public DateTime? CreateDate { get; set; } = DateTime.Now;
+        [Display(Name = "Admin?")]
+        public bool IsAdmin { get; set; }
         [Display(Name = "Bloglar")]
         public List<Post>? Posts { get; set; }
     }

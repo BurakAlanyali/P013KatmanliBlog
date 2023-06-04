@@ -14,7 +14,8 @@ namespace P013KatmanliBlog.MVCUI.ViewComponents
 		}
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View(await _service.GetAllAsync());
+
+			return View(await _service.GetAllAsync(x=>x.IsAdmin));
 		}
 	}
 }
