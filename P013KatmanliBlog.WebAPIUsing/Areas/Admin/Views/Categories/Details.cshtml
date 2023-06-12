@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Post>
+
+@{
+	ViewData["Title"] = ViewBag.Kategori;
+}
+
+
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Title)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Body)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Category)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.User)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Title)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Body)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Category.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.User.Name)
+				</td>
+				<td>
+					<a class="btn btn-primary" asp-action="Edit" asp-controller="Posts" asp-route-id="@item.Id">Düzenle</a> |
+					<a class="btn btn-secondary" asp-action="Details" asp-controller="Posts" asp-route-id="@item.Id">BlogDetay</a> |
+					<a class="btn btn-danger" asp-action="Delete" asp-controller="Posts" asp-route-id="@item.Id">Sil</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
