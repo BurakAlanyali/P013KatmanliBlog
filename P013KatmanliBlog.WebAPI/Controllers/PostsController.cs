@@ -24,15 +24,46 @@ namespace P013KatmanliBlog.WebAPI.Controllers
             return await _service.GetAllByIncludeCategoryAndUserAsync();
         }
 
-        // GET api/<PostsController>/5
-        [HttpGet("{id}")]
+        [HttpGet("/api/GetNewest")]
+		public async Task<Post> GetNewest()
+		{
+			return await _service.GetNewest();
+		}
+		[HttpGet("/api/GetNewestbyCategory/"+"{id}")]
+		public async Task<IActionResult> GetNewestbyCategory(int id)
+		{
+            var model = await _service.GetNewestByCategory(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+			return Ok(model);
+		}
+		[HttpGet("/api/GetNewestbyUser/" + "{id}")]
+		public async Task<IActionResult> GetNewestbyUser(int id)
+		{
+			var model= await _service.GetNewestByUser(id);
+			if (model == null)
+			{
+				return NotFound();
+			}
+			return Ok(model);
+		}
+		// GET api/<PostsController>/5
+		[HttpGet("{id}")]
         public async Task<Post> Get(int id)
         {
             return await _service.GetByIdByIncludeCategoryAndUserAsync(id);
         }
-
-        // POST api/<PostsController>
-        [HttpPost]
+		[HttpGet("/api/Search/"+"{q}")]
+		public async Task<List<Post>> Search(string q)
+		{
+            var model = await _service.GetAllByIncludeCategoryAndUserAsync();
+            var postList = model.Where(p => p.Title.Contains(q) || p.Body.Contains(q) || p.Category.Name.Contains(q) || p.User.Name.Contains(q)).ToList();
+			return postList;
+		}
+		// POST api/<PostsController>
+		[HttpPost]
         public async Task Post([FromBody] Post value)
         {
             await _service.AddAsync(value);

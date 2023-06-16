@@ -1,6 +1,6 @@
-﻿@model HomePageViewModel
+﻿@model CategoriesViewModel
 @{
-	ViewData["Title"] = "Blog Anasayfa";
+	ViewData["Title"] = Model.FeaturedPost.Category.Name;
 }
 <div class="card mb-4">
 	<a href="/Posts/Index/@Model.FeaturedPost.Id"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
@@ -13,8 +13,8 @@
 </div>
 <div class="row">
 	
-		@foreach (var item in Model.Posts)
-		{
+	@foreach (var item in Model.Posts)
+	{
 
 		<div class="col-lg-6">
 			<div class="card mb-4">
@@ -26,7 +26,7 @@
 					<a class="btn btn-primary" href="/Posts/Index/@item.Id">Devamını Oku →</a>
 				</div>
 			</div>
-			</div>
-		}
-	
+		</div>
+	}
+
 </div>
